@@ -1,4 +1,4 @@
-package com.gazim.libray.exchange_rates.model
+package com.gazim.library.exchange_rates.model
 
 import java.time.LocalDate
 

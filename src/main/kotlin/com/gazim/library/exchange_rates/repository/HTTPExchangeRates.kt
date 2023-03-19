@@ -1,6 +1,6 @@
-package com.gazim.libray.exchange_rates.repository
+package com.gazim.library.exchange_rates.repository
 
-import com.gazim.libray.exchange_rates.model.IHTTPProperty
+import com.gazim.library.exchange_rates.model.IHTTPProperty
 import java.net.URL
 import java.nio.charset.Charset
 

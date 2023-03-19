@@ -1,8 +1,8 @@
-package com.gazim.libray.exchange_rates.model
+package com.gazim.library.exchange_rates.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import com.gazim.libray.exchange_rates.utils.ValueJsonDeserializer
+import com.gazim.library.exchange_rates.utils.ValueJsonDeserializer
 
 data class Valute(
     @JsonProperty("ID")

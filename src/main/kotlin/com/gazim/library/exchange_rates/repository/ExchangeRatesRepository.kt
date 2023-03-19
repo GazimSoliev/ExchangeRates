@@ -1,6 +1,6 @@
-package com.gazim.libray.exchange_rates.repository
+package com.gazim.library.exchange_rates.repository
 
-import com.gazim.libray.exchange_rates.model.*
+import com.gazim.library.exchange_rates.model.*
 
 object ExchangeRatesRepository : IExchangeRatesRepository {
     override fun getExchangeRates(properties: Set<IExchangeRatesProperty>): IVarCus {

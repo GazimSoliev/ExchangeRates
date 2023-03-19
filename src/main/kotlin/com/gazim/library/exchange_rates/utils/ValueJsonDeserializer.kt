@@ -1,4 +1,4 @@
-package com.gazim.libray.exchange_rates.utils
+package com.gazim.library.exchange_rates.utils
 
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
