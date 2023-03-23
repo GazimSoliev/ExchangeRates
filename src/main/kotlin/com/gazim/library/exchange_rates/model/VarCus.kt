@@ -12,6 +12,6 @@ data class VarCus(
     @JsonProperty("name")
     override val name: String,
     @JsonProperty("Valute")
-    override val valutes: List<Valute>
+    override val exchanges: List<Exchange>
 ) : IVarCus
 

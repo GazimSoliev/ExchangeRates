@@ -5,10 +5,10 @@ import java.time.LocalDate
 interface IVarCus {
     val date: LocalDate
     val name: String
-    val valutes: List<IValute>
+    val exchanges: List<IExchange>
 }
 
-interface IValute {
+interface IExchange {
     val id: String
     val numCode: String
     val charCode: String

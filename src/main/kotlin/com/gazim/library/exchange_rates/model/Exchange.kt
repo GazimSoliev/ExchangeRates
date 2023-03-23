@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.gazim.library.exchange_rates.utils.ValueJsonDeserializer
 
-data class Valute(
+data class Exchange(
     @JsonProperty("ID")
     override val id: String,
     @JsonProperty("NumCode")
@@ -18,4 +18,4 @@ data class Valute(
     @JsonDeserialize(using = ValueJsonDeserializer::class)
     @JsonProperty("Value")
     override val value: Float
-) : IValute
+) : IExchange
