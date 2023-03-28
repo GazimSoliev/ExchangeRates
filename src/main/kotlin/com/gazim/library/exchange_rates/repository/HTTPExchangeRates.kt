@@ -18,7 +18,7 @@ object HTTPExchangeRates : IHTTPExchangeRates {
 
     fun getHTTPProperties(properties: Set<IHTTPProperty>): String =
         properties.joinToString(separator = "&", prefix = "?") {
-            "${it.key}=${it.valueStr}"
+            "${it.property}=${it.valueStr}"
         }
 
     fun getEncoding(str: String): String =
