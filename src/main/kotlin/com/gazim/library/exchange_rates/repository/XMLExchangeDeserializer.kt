@@ -2,13 +2,11 @@ package com.gazim.library.exchange_rates.repository
 
 import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.gazim.library.exchange_rates.model.IValCurs
 import com.gazim.library.exchange_rates.model.ValCurs
 import com.gazim.library.exchange_rates.model.VarCus
 
-object XMLExchangeRatesDeserializer : IXMLExchangeRatesDeserializer {
+object XMLExchangeDeserializer : IXMLExchangeDeserializer {
     @Suppress("MemberVisibilityCanBePrivate")
     val xmlDeserializer = XmlMapper(JacksonXmlModule().apply {
         setDefaultUseWrapper(false)

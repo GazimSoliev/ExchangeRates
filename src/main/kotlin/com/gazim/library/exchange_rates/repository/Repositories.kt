@@ -1,20 +1,34 @@
 package com.gazim.library.exchange_rates.repository
 
-import com.gazim.library.exchange_rates.model.IExchangeRatesProperty
-import com.gazim.library.exchange_rates.model.IHTTPProperty
-import com.gazim.library.exchange_rates.model.IValCurs
-import com.gazim.library.exchange_rates.model.IVarCus
+import com.gazim.library.exchange_rates.model.*
 
-interface IXMLExchangeRatesDeserializer {
-    fun getVarCus(xml: String): IVarCus
-    fun getValCurs(xml: String): IValCurs
+interface IXMLExchangeRatesDeserializer<T> {
+    fun deserialize(xml: String): T
 }
 
-interface IHTTPExchangeRates {
-    fun getXML(properties: Set<IHTTPProperty>): String
+interface IXMLExchangeDeserializer : IXMLExchangeRatesDeserializer<IVarCus>
+
+interface IXMLRecordDeserializer : IXMLExchangeRatesDeserializer<IValCurs>
+
+
+interface IHTTPExchangeRates<HTTPProperty : IHTTPProperty> {
+    fun getXML(properties: Set<HTTPProperty>): String
 }
+
+interface IHTTPExchange : IHTTPExchangeRates<IExchangeHTTPProperty>
+
+interface IHTTPRecord : IHTTPExchangeRates<IExchangeHTTPProperty>
+
+
+interface IExchangeRatesGetter<ERProperty : IExchangeRatesProperty, T> {
+    fun get(properties: Set<ERProperty>): T
+}
+
+interface IExchangeGetter : IExchangeRatesGetter<IExchangeERProperty, IVarCus>
+interface IRecordGetter : IExchangeRatesGetter<IRecordERProperty, IValCurs>
+
 
 interface IExchangeRatesRepository {
-    fun getExchangeRates(properties: Set<IExchangeRatesProperty>): IVarCus
-    fun getExchangeRecords(): IValCurs
+    fun getExchange(properties: Set<IExchangeERProperty>): IVarCus
+    fun getRecord(properties: Set<IRecordERProperty>): IValCurs
 }

@@ -3,17 +3,21 @@ package com.gazim.library.exchange_rates.repository
 import com.gazim.library.exchange_rates.model.*
 
 object ExchangeRatesRepository : IExchangeRatesRepository {
-    override fun getExchangeRates(properties: Set<IExchangeRatesProperty>): IVarCus {
+    override fun getExchangeRates(properties: Set<IExchangeERProperty>): IVarCus {
         val httpProperties = properties.map {
             when (it) {
-                is IExchangeRatesDataProperty -> DateHTTPProperty(it.value)
+                is IDateExcERProp -> DateExcHTTPProp(it.date)
                 else -> throw Exception()
             }
-        }.toSet<IHTTPProperty>()
+        }.toSet<IExchangeHTTPProperty>()
         val xml = HTTPExchangeRates.getXML(httpProperties)
-        return XMLExchangeRatesDeserializer.getVarCus(xml)
+        return XMLExchangeDeserializer.getVarCus(xml)
     }
 
-    fun getExchangeRates(vararg properties: IExchangeRatesProperty): IVarCus =
+    fun getExchangeRates(vararg properties: IExchangeERProperty): IVarCus =
         getExchangeRates(properties.toSet())
+
+    override fun getExchangeRecords(): IValCurs {
+        TODO("Not yet implemented")
+    }
 }
