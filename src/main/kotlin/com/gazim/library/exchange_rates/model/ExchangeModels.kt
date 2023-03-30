@@ -18,17 +18,3 @@ interface IExchange {
 }
 
 
-
-interface IExchangeHTTPProperty: IHTTPProperty
-
-interface IDateExcHTTPProp: IExchangeHTTPProperty {
-    val date: LocalDate
-}
-
-
-
-interface IExchangeERProperty: IExchangeRatesProperty
-
-interface IDateExcERProp: IExchangeERProperty {
-    val date: LocalDate
-}

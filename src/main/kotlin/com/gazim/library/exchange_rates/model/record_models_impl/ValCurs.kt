@@ -1,6 +1,8 @@
-package com.gazim.library.exchange_rates.model
+package com.gazim.library.exchange_rates.model.record_models_impl
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.gazim.library.exchange_rates.model.IRecord
+import com.gazim.library.exchange_rates.model.IValCurs
 import java.time.LocalDate
 
 data class ValCurs(

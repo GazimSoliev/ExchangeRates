@@ -1,7 +1,8 @@
-package com.gazim.library.exchange_rates.model
+package com.gazim.library.exchange_rates.model.exchange_models_impl
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.gazim.library.exchange_rates.model.IExchange
 import com.gazim.library.exchange_rates.utils.ValueJsonDeserializer
 
 data class Exchange(

@@ -18,24 +18,3 @@ interface IValCurs {
 }
 
 
-interface IRecordERProperty : IExchangeRatesProperty
-
-interface IDateRangeRecERProp : IRecordERProperty {
-    val startDate: LocalDate
-    val endDate: LocalDate
-}
-
-
-interface IRecordHTTPProperty : IHTTPProperty
-
-interface IStartDateRecHTTPProp : IRecordHTTPProperty {
-    val startDate: LocalDate
-}
-
-interface IEndDateRecHTTPProp : IRecordHTTPProperty {
-    val endDate: LocalDate
-}
-
-interface IIDRecHTTPProp : IRecordHTTPProperty {
-    val id: String
-}

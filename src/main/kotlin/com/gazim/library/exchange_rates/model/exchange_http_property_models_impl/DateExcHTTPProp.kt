@@ -1,5 +1,6 @@
-package com.gazim.library.exchange_rates.model
+package com.gazim.library.exchange_rates.model.exchange_http_property_models_impl
 
+import com.gazim.library.exchange_rates.model.IDateExcHTTPProp
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 

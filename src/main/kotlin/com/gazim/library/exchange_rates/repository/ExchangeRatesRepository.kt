@@ -1,6 +1,7 @@
 package com.gazim.library.exchange_rates.repository
 
 import com.gazim.library.exchange_rates.model.*
+import com.gazim.library.exchange_rates.model.exchange_http_property_models_impl.DateExcHTTPProp
 
 object ExchangeRatesRepository : IExchangeRatesRepository {
     override fun getExchangeRates(properties: Set<IExchangeERProperty>): IVarCus {

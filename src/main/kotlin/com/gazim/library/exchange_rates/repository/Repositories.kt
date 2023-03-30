@@ -7,7 +7,6 @@ interface IXMLExchangeRatesDeserializer<T> {
 }
 
 interface IXMLExchangeDeserializer : IXMLExchangeRatesDeserializer<IVarCus>
-
 interface IXMLRecordDeserializer : IXMLExchangeRatesDeserializer<IValCurs>
 
 
@@ -16,7 +15,6 @@ interface IHTTPExchangeRates<HTTPProperty : IHTTPProperty> {
 }
 
 interface IHTTPExchange : IHTTPExchangeRates<IExchangeHTTPProperty>
-
 interface IHTTPRecord : IHTTPExchangeRates<IExchangeHTTPProperty>
 
 
