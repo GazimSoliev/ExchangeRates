@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer
 
 object ValueJsonDeserializer : JsonDeserializer<Float>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Float? = strToFloat(p!!.text)!!
+    @Suppress("MemberVisibilityCanBePrivate")
     fun strToFloat(str: String): Float? = str.replace(',', '.').toFloatOrNull()
 }
 

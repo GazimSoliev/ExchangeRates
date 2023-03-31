@@ -15,18 +15,17 @@ interface IHTTPExchangeRates<HTTPProperty : IHTTPProperty> {
 }
 
 interface IHTTPExchange : IHTTPExchangeRates<IExchangeHTTPProperty>
-interface IHTTPRecord : IHTTPExchangeRates<IExchangeHTTPProperty>
+interface IHTTPRecord : IHTTPExchangeRates<IRecordHTTPProperty>
 
-
-interface IExchangeRatesGetter<ERProperty : IExchangeRatesProperty, T> {
-    fun get(properties: Set<ERProperty>): T
+interface IExchangeRepository {
+    fun getExchanges(properties: Set<IExchangeERProperty>): IVarCus
 }
-
-interface IExchangeGetter : IExchangeRatesGetter<IExchangeERProperty, IVarCus>
-interface IRecordGetter : IExchangeRatesGetter<IRecordERProperty, IValCurs>
+interface IRecordRepository {
+    fun getRecords(exchange: IExchange, properties: Set<IRecordERProperty>): IValCurs
+}
 
 
 interface IExchangeRatesRepository {
     fun getExchange(properties: Set<IExchangeERProperty>): IVarCus
-    fun getRecord(properties: Set<IRecordERProperty>): IValCurs
+    fun getRecord(exchange: IExchange, properties: Set<IRecordERProperty>): IValCurs
 }

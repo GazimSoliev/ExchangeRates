@@ -1,14 +1,15 @@
 package com.gazim.library.exchange_rates.repository
 
-import com.gazim.library.exchange_rates.model.IExchangeHTTPProperty
+import com.gazim.library.exchange_rates.model.IHTTPProperty
 import java.net.URL
 import java.nio.charset.Charset
 
-object HTTPExchangeRates : IHTTPExchange {
-    val link = "http://www.cbr.ru/scripts/XML_daily.asp"
+abstract class AHTTPExchangeRates<HTTPProperty : IHTTPProperty> : IHTTPExchangeRates<HTTPProperty> {
+    abstract val link: String
+    @Suppress("MemberVisibilityCanBePrivate")
     val regexXmlInfo = Regex("""<\?xml version="(.+)" encoding="(.*)"\?>""")
 
-    override fun getXML(properties: Set<IExchangeHTTPProperty>): String {
+    override fun getXML(properties: Set<HTTPProperty>): String {
         val currentUrl = link + getHTTPProperties(properties)
         val url = URL(currentUrl)
         val bytes = url.readBytes()
@@ -16,11 +17,11 @@ object HTTPExchangeRates : IHTTPExchange {
         return String(bytes, Charset.forName(encoding)).replace(regexXmlInfo, "")
     }
 
-    fun getHTTPProperties(properties: Set<IExchangeHTTPProperty>): String =
+    private fun getHTTPProperties(properties: Set<HTTPProperty>): String =
         properties.joinToString(separator = "&", prefix = "?") {
             "${it.property}=${it.value}"
         }
 
-    fun getEncoding(str: String): String =
+    private fun getEncoding(str: String): String =
         regexXmlInfo.find(str)!!.groupValues.last()
 }

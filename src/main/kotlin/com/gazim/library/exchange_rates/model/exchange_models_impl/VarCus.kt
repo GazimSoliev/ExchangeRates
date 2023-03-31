@@ -12,6 +12,7 @@ data class VarCus(
     override val date: LocalDate,
     @JsonProperty("name")
     override val name: String,
+    @Suppress("SpellCheckingInspection")
     @JsonProperty("Valute")
     override val exchanges: List<Exchange>
 ) : IVarCus

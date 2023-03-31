@@ -4,6 +4,6 @@ import com.gazim.library.exchange_rates.model.IIDRecHTTPProp
 
 data class IDRecHTTPProp(
     override val id: String,
-    override val property: String,
-    override val value: String
+    override val property: String = "VAL_NM_RQ",
+    override val value: String = id
 ) : IIDRecHTTPProp

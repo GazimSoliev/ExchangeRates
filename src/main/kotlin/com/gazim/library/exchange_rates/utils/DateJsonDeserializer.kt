@@ -6,12 +6,13 @@ import com.fasterxml.jackson.databind.JsonDeserializer
 import java.time.LocalDate
 
 object DateJsonDeserializer : JsonDeserializer<LocalDate>() {
+    @Suppress("MemberVisibilityCanBePrivate")
     val regexDate = Regex("""(\d{1,2})\.(\d{1,2})\.(\d+)""")
 
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): LocalDate =
         strDateToLocalDate(p!!.text)!!
 
-    fun strDateToLocalDate(str: String): LocalDate? =
+    private fun strDateToLocalDate(str: String): LocalDate? =
         regexDate.find(str)?.groupValues?.run {
             LocalDate.of(
                 component4().toInt(),
